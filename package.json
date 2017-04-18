@@ -1,14 +1,15 @@
 {
   "name": "guless-native",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Journey of medern web applications",
   "main": "index.js",
   "scripts": {
     "cert": "mkdir -p ./cert/ && openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ./cert/key.pem -out ./cert/cert.pem -days 9999 -subj '/C=CN/ST=Guangdong/L=Guangzhou/O=Guless/OU=Web Developers/CN=*.guless.com/emailAddress=Samlv9@live.com' && cp ./cert/cert.pem ./cert/cert.crt",
+    "cert-import": "sudo node --harmony ./tools/ImportCA.js",
     "test": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- ./test/unit/ --recursive && npm version patch --no-git-tag-version",
     "docs": "esdoc -c esdoc.json",
-    "open-docs": "open ./docs/api/index.html",
-    "open-coverage": "open ./docs/coverage/lcov-report/index.html"
+    "docs-server": "http-server ./docs/ -p 9999 -S -C ./cert/cert.pem -K ./cert/key.pem",
+    "docs-opener": "open https://apidev.guless.com:9999/"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,9 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babili": "0.0.10",
     "esdoc": "^0.5.2",
+    "http-server": "^0.9.0",
     "mocha": "^3.2.0",
-    "mocha-logger": "^1.0.5"
+    "mocha-logger": "^1.0.5",
+    "shelljs": "^0.7.7"
   }
 }

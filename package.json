@@ -1,7 +1,7 @@
 {
   "name": "guless-native",
   "version": "1.0.4",
-  "description": "",
+  "description": "Journey of medern web applications",
   "main": "index.js",
   "scripts": {
     "cert": "mkdir -p ./cert/ && openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ./cert/key.pem -out ./cert/cert.pem -days 9999 -subj '/C=CN/ST=Guangdong/L=Guangzhou/O=Guless/OU=Web Developers/CN=*.guless.com/emailAddress=Samlv9@live.com' && cp ./cert/cert.pem ./cert/cert.crt",

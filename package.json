@@ -1,11 +1,11 @@
 {
   "name": "guless-native",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "cert": "mkdir -p ./cert/ && openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ./cert/key.pem -out ./cert/cert.pem -days 9999 -subj '/C=CN/ST=Guangdong/L=Guangzhou/O=Guless/OU=Web Developers/CN=*.guless.com/emailAddress=Samlv9@live.com' && cp ./cert/cert.pem ./cert/cert.crt",
-    "test": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- ./test/unit/ --recursive",
+    "test": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- ./test/unit/ --recursive && npm version patch --no-git-tag-version",
     "docs": "esdoc -c esdoc.json",
     "open-docs": "open ./docs/api/index.html",
     "open-coverage": "open ./docs/coverage/lcov-report/index.html"

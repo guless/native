@@ -1,0 +1,33 @@
+{
+  "name": "guless-native",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cert": "mkdir -p ./cert/ && openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ./cert/key.pem -out ./cert/cert.pem -days 9999 -subj '/C=CN/ST=Guangdong/L=Guangzhou/O=Guless/OU=Web Developers/CN=*.guless.com/emailAddress=Samlv9@live.com' && cp ./cert/cert.pem ./cert/cert.crt",
+    "test": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- ./test/unit/ --recursive",
+    "docs": "esdoc -c esdoc.json",
+    "open-docs": "open ./docs/api/index.html",
+    "open-coverage": "open ./docs/coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guless/native.git"
+  },
+  "author": "Samlv9 <Samlv9@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guless/native/issues"
+  },
+  "homepage": "https://github.com/guless/native#readme",
+  "devDependencies": {
+    "babel-istanbul": "^0.12.1",
+    "babel-plugin-module-resolver": "^2.7.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
+    "babili": "0.0.10",
+    "esdoc": "^0.5.2",
+    "mocha": "^3.2.0",
+    "mocha-logger": "^1.0.5"
+  }
+}
